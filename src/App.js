@@ -2,15 +2,19 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import List from './shop/list';
+import List from './shop/List';
 import Main from './pages/Main';
 import './css/ShopDetail.scss'
 import Itm from './shop/Itm'
 import { Route, Routes } from 'react-router-dom';
+import Cart from './shop/Cart';
 
 //https://desipossa.github.io/shop_cra/assets/data.json
 const App = () => {
     const [itm, setItm] = useState();
+    const [cart, setCart] = useState([
+        { id: 1, itm: 'lala', price: 5000 },
+    ]);
     useEffect(() => {
         const url = 'https://desipossa.github.io/shop_cra/assets/data.json'
         const getProduct = async () => {
@@ -39,13 +43,14 @@ const App = () => {
 
     return (
         <>
-            <Header />
+            <Header cart={cart} />
             {
                 itm ?
                     <Routes>
                         <Route path='/' element={<Main />}></Route>
+                        <Route path='/cart' element={<Cart cart={cart} />}></Route>
                         <Route path='/shopList' element={<List shopList={itm} />}></Route>
-                        <Route path='/shopItem/:itm' element={<Itm shopList={itm} />}></Route>
+                        <Route path='/shopItem/:itm' element={<Itm shopList={itm} cart={cart} setCart={setCart} />}></Route>
                     </Routes>
                     : <div>Loading...</div>
             }

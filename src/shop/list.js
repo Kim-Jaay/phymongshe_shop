@@ -10,7 +10,7 @@ const List = ({ shopList }) => {
                 {
                     shopList.map((it) => {
                         return (
-                            <figure>
+                            <figure key={it.id}>
                                 <Link to={'/shopItem/' + it.id}>
                                     <div className="box">
                                         <img src={it.src} alt="" />

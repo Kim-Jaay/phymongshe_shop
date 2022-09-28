@@ -1,7 +1,7 @@
 @use'common';
 
 .MainSlide {
-	position: relative; padding: 10rem 0;
+	position: relative; padding: 0; transform: translateY(-8rem);
 
 	.slick-track { transition-duration: 0.5ms ; }
 	.inner {
