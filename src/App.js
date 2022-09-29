@@ -8,6 +8,7 @@ import './css/ShopDetail.scss'
 import Itm from './shop/Itm'
 import { Route, Routes } from 'react-router-dom';
 import Cart from './shop/Cart';
+import Category from './shop/Category'
 
 //https://desipossa.github.io/shop_cra/assets/data.json
 const App = () => {
@@ -43,13 +44,14 @@ const App = () => {
 
     return (
         <>
-            <Header cart={cart} />
+            <Header cart={cart} shopList={itm} />
             {
                 itm ?
                     <Routes>
                         <Route path='/' element={<Main />}></Route>
                         <Route path='/cart' element={<Cart cart={cart} />}></Route>
                         <Route path='/shopList' element={<List shopList={itm} />}></Route>
+                        <Route path='/shopList/:cate' element={<Category shopList={itm} />}></Route>
                         <Route path='/shopItem/:itm' element={<Itm shopList={itm} cart={cart} setCart={setCart} />}></Route>
                     </Routes>
                     : <div>Loading...</div>
