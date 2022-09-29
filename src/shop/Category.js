@@ -6,7 +6,7 @@ const List = ({ shopList }) => {
 
     const { cate } = useParams();
     //카테고리가 url 파라미터에 뿌려진 값을 받아와서 배열이 된다 // 원래 배열에서 카테고리가 일치하는것으로
-    const cateList = shopList.filter(it => cate == it.cate)
+    const cateList = shopList.filter(it => cate === it.cate)
 
     return (
         <section className='shopList'>
@@ -19,9 +19,9 @@ const List = ({ shopList }) => {
                                     <div className="box">
                                         <img src={it.src} alt="" />
                                     </div>
-                                    <div className="name">{it.name}</div>
-                                    <div className="des">{it.des.substring(0, 100)}...</div>
-                                    <div className="price"><span>{it.price.toLocaleString()}</span> 원</div>
+                                    <div className='name'>{it.name}</div>
+                                    <div className='des'>{it.des.substring(0, 100)} ...</div>
+                                    <div className='price'><span>{it.price.toLocaleString()}</span> 원</div>
                                 </Link>
                             </figure>
                         )

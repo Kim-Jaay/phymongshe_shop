@@ -6,7 +6,6 @@ import { FiShoppingCart, FiUserPlus, FiSearch } from "react-icons/fi";
 import { Link } from 'react-router-dom';
 
 const Header = ({ cart, shopList }) => {
-
     const [on, setOn] = useState(false);
     useEffect(() => {
         const scrollEvent = () => {
@@ -14,14 +13,16 @@ const Header = ({ cart, shopList }) => {
             sct > 0 ? setOn(true) : setOn(false)
         }
         window.addEventListener('scroll', scrollEvent);
-        return () => { window.removeEventListener('scroll', scrollEvent); }
+        return () => {
+            window.removeEventListener('scroll', scrollEvent);
+        }
     }, [])
     return (
         <header className={`Header ${on ? 'on' : ''}`}>
             <TopBanner />
             <div className='gnb'>
                 <h1>
-                    <Link to='/'>
+                    <Link to="/">
                         <img src={process.env.PUBLIC_URL + '/assets/img/top_logo.png'} alt="" />
                     </Link>
                 </h1>

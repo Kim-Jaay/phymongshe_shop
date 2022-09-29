@@ -2,14 +2,26 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const MainNav = ({ shopList }) => {
+    //중복이 제거된 배열 category...
+    //https://kyounghwan01.github.io/JS/JSbasic/dupulication-property-remove/#filter
+    // example.filter(
+    //     (arr, index, callback) => index === callback.findIndex(t => t.id === arr.id)
+    //   );
+
+    const ncate = shopList.filter((itm, idx, it) => idx === it.findIndex(t => t.cate === itm.cate))
+    const n2cate = [...new Set(ncate)]
     return (
         <ul>
             <li><Link to='/'>BRAND</Link></li>
-            {console.log(shopList)}
             <li><Link to='/shopList'>SHOPPING</Link></li>
-            <li><Link to='/shopList/liquid'>EVENT</Link></li>
+            {
+                ncate.map(ca => {
+                    return ca.cate && <li className='list'><Link to={'/shopList/' + ca.cate}>{ca.cate}</Link></li>
+                })
+            }
+            {/* <li><Link to='/shopList/liquid'>EVENT</Link></li>
             <li><Link to='/shopList/pencil'>COMMUNITY</Link></li>
-            <li><Link to='/shopList/powder'>CS CENTER</Link></li>
+            <li><Link to='/shopList/powder'>CS CENTER</Link></li> */}
             <li><Link to='/'>CS CENTER</Link></li>
         </ul>
     )

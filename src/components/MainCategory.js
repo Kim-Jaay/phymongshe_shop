@@ -1,14 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components';
 
+const MainCategory = ({ shopList, category }) => {
+    const MainList = shopList.filter(it => category === it.cate);
 
-const List = ({ shopList }) => {
     return (
         <section className='shopList'>
+
             <div className='inner'>
 
                 {
-                    shopList.map(it => {
+                    MainList.map(it => {
                         return (
                             <figure key={it.id}>
                                 <Link to={'/shopItem/' + it.id}>
@@ -25,8 +28,7 @@ const List = ({ shopList }) => {
                 }
             </div>
         </section >
-
     )
 }
 
-export default List
+export default MainCategory
