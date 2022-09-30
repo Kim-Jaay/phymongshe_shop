@@ -34,8 +34,7 @@ const App = () => {
                 }
             })
             setItm(shopdata);
-            console.log(res.data);
-            console.log(shopdata);
+
         }
         getProduct();
     }, [])

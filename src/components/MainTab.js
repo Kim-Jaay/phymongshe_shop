@@ -1,22 +1,27 @@
 import React, { useState } from 'react'
 import MainCategory from './MainCategory'
+import Slider from 'react-slick';
+import CategorySlider from './CategorySlider';
 
-const MainTab = ({ shopList }) => {
+const MainTab = ({ shopList, arrow, dots }) => {
     const link = [
         'pencil', 'liquid', 'powder'
     ];
     const [alink, setAlink] = useState(0);
     return (
-        <section className="MainTab sc">
+        <section className='sce slide_'>
             <h2>Best Product</h2>
-            <ul className="bp_tab">
+
+            <ul className="bp_tab" >
                 {
                     link.map((it, idx) => {
-                        return <li onClick={() => setAlink(idx)}>{it}</li>
+                        return <li onClick={() => setAlink(idx)} key={idx}>{it}</li>
                     })
                 }
             </ul>
-            <MainCategory shopList={shopList} category={link[alink]} />
+            <div className="inner">
+                <CategorySlider shopList={shopList} category={link[alink]} arrow={arrow} dots={dots} />
+            </div>
         </section>
     )
 }

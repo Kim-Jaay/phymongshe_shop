@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 
 const List = ({ shopList }) => {
     return (
-        <section className='shopList'>
+        <section className='shopList pn'>
             <div className='inner'>
-
+홈 > All
                 {
                     shopList.map(it => {
                         return (

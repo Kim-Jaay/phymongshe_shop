@@ -9,7 +9,25 @@ const List = ({ shopList }) => {
     const cateList = shopList.filter(it => cate === it.cate)
 
     return (
-        <section className='shopList'>
+        <section className='shopList shop_'>
+            <div className="category">
+                HOME > {cate}
+            </div>
+            <h2>{cate}</h2>
+            <ul className="list">
+                <li>total product : {cateList.length}</li>
+                <li className="line">line</li>
+                <li>
+                    <ul className="option">
+                        <li>신제품</li>
+                        <li>낮은가격</li>
+                        <li>높은가격</li>
+                        <li>인기상품</li>
+                    </ul>
+                </li>
+
+
+            </ul>
             <div className='inner'>
                 {
                     cateList.map((it, idx) => {
