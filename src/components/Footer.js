@@ -1,19 +1,23 @@
 import React from 'react'
-import { Customer } from './Customer'
+import Customer from './Customer';
 import '../css/Footer.scss'
-import company from '../data/profile'
+import company from '../data/profile';
 
 const Footer = () => {
     return (
+
         <footer className='Footer'>
             <div className="top">
                 <div className="inner">
                     <Customer />
                 </div>
             </div>
-            <div className="bot">
+            <div className="bottom">
                 <div className="inner">
-                    <div>{company.address}</div>
+                    <p>
+                        ADDRESS : {company.address} <br />
+                        &copy; {company.company}.allright reserved.
+                    </p>
                 </div>
             </div>
         </footer>

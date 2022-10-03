@@ -9,20 +9,16 @@ const MainNav = ({ shopList }) => {
     //   );
 
     const ncate = shopList.filter((itm, idx, it) => idx === it.findIndex(t => t.cate === itm.cate))
-    const n2cate = [...new Set(ncate)]
     return (
         <ul>
-            <li><Link to='/'>BRAND</Link></li>
+            {/* <li><Link to='/'>BRAND</Link></li> */}
             <li><Link to='/shopList'>SHOPPING</Link></li>
             {
-                ncate.map((ca, idx) => {
+                ncate.reverse().map((ca, idx) => {
                     return ca.cate && <li className='list' key={idx}><Link to={'/shopList/' + ca.cate}>{ca.cate}</Link></li>
                 })
             }
-            {/* <li><Link to='/shopList/liquid'>EVENT</Link></li>
-            <li><Link to='/shopList/pencil'>COMMUNITY</Link></li>
-            <li><Link to='/shopList/powder'>CS CENTER</Link></li> */}
-            <li><Link to='/'>CS CENTER</Link></li>
+            <li><Link to='/board'>CS CENTER</Link></li>
         </ul>
     )
 }

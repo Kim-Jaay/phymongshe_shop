@@ -1,18 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-
-
 const MainCategory = ({ shopList, category, bg }) => {
-    const MainList = shopList.filter(it => category === it.cate);
-
+    const Mainlist = shopList.filter(it => category === it.cate);
     return (
-
-        <section className={`shopList ${bg ? 'bg' : ''}`} >
-            <div className="inner">
+        <section className={`shopList sc ${bg ? 'bg' : ''}`}>
+            <div className='inner'>
                 {
-                    MainList.map(it => {
+                    Mainlist.map(it => {
                         return (
                             <figure key={it.id}>
                                 <Link to={'/shopItem/' + it.id}>
@@ -28,7 +24,7 @@ const MainCategory = ({ shopList, category, bg }) => {
                     })
                 }
             </div>
-        </section >
+        </section>
     )
 }
 

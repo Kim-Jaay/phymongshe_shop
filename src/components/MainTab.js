@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import MainCategory from './MainCategory'
-import Slider from 'react-slick';
-import CategorySlider from './CategorySlider';
+import CategorySlider from './CategorySlider'
 
 const MainTab = ({ shopList, arrow, dots }) => {
     const link = [
@@ -11,8 +11,7 @@ const MainTab = ({ shopList, arrow, dots }) => {
     return (
         <section className='sce slide_'>
             <h2>Best Product</h2>
-
-            <ul className="bp_tab" >
+            <ul className='bp_tab'>
                 {
                     link.map((it, idx) => {
                         return <li onClick={() => setAlink(idx)} key={idx}>{it}</li>
@@ -22,6 +21,8 @@ const MainTab = ({ shopList, arrow, dots }) => {
             <div className="inner">
                 <CategorySlider shopList={shopList} category={link[alink]} arrow={arrow} dots={dots} />
             </div>
+
+
         </section>
     )
 }
