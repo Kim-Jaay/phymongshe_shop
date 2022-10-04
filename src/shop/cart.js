@@ -13,7 +13,7 @@ const Cart = ({ cart, setCart }) => {
                         <ul key={idx}>
                             <li>{ca.id}</li>
                             <li>{ca.itm}</li>
-                            <li>{ca.e} 개 사고파요...</li>
+                            <li>{ca.e} 개</li>
                         </ul>
                     )
 
